@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="box">
+            <div id="upper">
+                <table style="width:100%">
+                    <tr>
+                        <th>Name</th>
+                        <th>Bank ID Number</th>
+                        <th>Balance</th>
+                    </tr>
+                    <tr>
+                        <th contenteditable id="name"></th>
+                        <th id="idn"></th>
+                        <th id="balance"></th>
+                    </tr>
+                </table>
+                <br>
+                <table>
+                    <tr>
+                        <th contenteditable width="60px" id="number">
+                        </th>
+                    </tr>
+                </table>
+                <input type="button" onClick="deposit()" value="Deposit">
+                <input type="button" onClick="withdrawl()" value="Withdrawl">
+                <br>
+                <br>
+                <br>
+                <table>
+                    <tr>
+                        <th contenteditable width="60px" id="lookup"></th>
+                    </tr>
+                </table>
+                <input type="button" onClick="lookUp()" value="Look Up">
+            </div>
+            <div id="lower"></div>
+        </div>
+    </body>
+    <script src="secondary.js"></script>
+</html>
