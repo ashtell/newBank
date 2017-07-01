@@ -1,4 +1,5 @@
 // starting gui version now
+/** global swal **/
 function makeNewAccount(name) {
     var newName = name.toLowerCase();                                   //make sure there are no duplicate accounts
     var accountName = newName + "account";                              // make a new account string
@@ -17,7 +18,7 @@ function deposit() {
     var account = Lname + "account";
     var accountN = Lname + "number"
     if (localStorage.getItem(account) === null) {                       //if name isn't found make new account
-        makeNewAccount(name);                                           //make new account
+        swal('Error', 'User Not Defined', 'error');                     //Shout No!
     }
     var oldBalance = parseInt(localStorage.getItem(account));
     var newBalance = parseInt(number) + oldBalance;
@@ -33,7 +34,7 @@ function withdrawl() {
     var account = Lname + "account";
     var accountN = Lname + "number";
     if (localStorage.getItem(account) === null) {                       //if name isn't found make new account
-        makeNewAccount(name);                                           //make new account
+        swal('Error', 'User Not Defined', 'error');                     //Shout No!
     }
     var oldBalance = parseInt(localStorage.getItem(account));
     var newBalance = oldBalance - parseInt(number);
@@ -53,7 +54,7 @@ function lookUp() {
     var account = Lname + "account";
     var accountN = Lname + "number";
     if (localStorage.getItem(account) === null) {                       //if name isn't found make new account
-        makeNewAccount(name);                                           //make new account
+        swal('Error', 'User Not Defined', 'error');                     //Shout No!
     }
     document.getElementById("balance").innerHTML = "$" + localStorage.getItem(account);
     document.getElementById("idn").innerHTML = localStorage.getItem(accountN);
