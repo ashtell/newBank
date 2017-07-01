@@ -54,7 +54,7 @@ function lookUp() {
     var account = Lname + "account";
     var accountN = Lname + "number";
     if (localStorage.getItem(account) === null) {                       //if name isn't found make new account
-        swal('Error', 'User Not Defined', 'error');                     //Shout No!
+        sweetAlert('Error', 'User Not Defined', 'error');                     //Shout No!
     }
     document.getElementById("balance").innerHTML = "$" + localStorage.getItem(account);
     document.getElementById("idn").innerHTML = localStorage.getItem(accountN);
