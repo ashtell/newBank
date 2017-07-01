@@ -21,6 +21,7 @@ function createUser() {
     } else {
         swal("Error", "User Account Already Exists", "error");
     }
+    name = "";
 }
 
 function deposit() {
@@ -37,7 +38,9 @@ function deposit() {
         localStorage.setItem(account, newBalance);
         document.getElementById("balance").innerHTML = "$" + localStorage.getItem(account);
         document.getElementById("idn").innerHTML = localStorage.getItem(accountN);
+        
     }
+    name = "";
 }
 
 function withdrawl() {
@@ -59,6 +62,7 @@ function withdrawl() {
             document.getElementById("idn").innerHTML = localStorage.getItem(accountN);
         }
     }
+    name = "";
 }
 
 function lookUp() {
@@ -73,6 +77,7 @@ function lookUp() {
         document.getElementById("idn").innerHTML = localStorage.getItem(accountN);
         document.getElementById("name").innerHTML = document.getElementById("lookup").innerHTML;
     }
+    name = "";
 }
 // function displayValue(name, value) {
 //     document.getElementById("balance").innerHTML = value; //display number of dollars
