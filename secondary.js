@@ -10,7 +10,7 @@ function makeNewAccount(name) {
     localStorage.setItem(accountNumber, Rnum);
 
 }
-function makeAccount(){
+function createUser(){
     var name = document.getElementById("makeAccount").innerHTML;
     var Lname = name.toLowerCase();
     var account = Lname + "account";
