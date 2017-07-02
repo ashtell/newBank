@@ -1,5 +1,6 @@
 // starting gui version now
 /*global swal */
+var version = "0.00.21.07.02"; //0 cause of prerelease, 00 cause of hour, 21 cause of minute, 07 cause of month, 02 cause of date
 function makeNewAccount(name) {
     var newName = name.toLowerCase(); //make sure there are no duplicate accounts
     var accountName = newName + "account"; // make a new account string
@@ -21,7 +22,7 @@ function createUser() {
     } else {
         swal("Error", "User Account Already Exists", "error");
     }
-    name = "";
+    document.getElementById("makeAccount").innerHTML = "";
 }
 
 function deposit() {
@@ -40,7 +41,8 @@ function deposit() {
         document.getElementById("idn").innerHTML = localStorage.getItem(accountN);
         
     }
-    name = "";
+    document.getElementById("number").innerHTML = "";
+    document.getElementById("name").innerHTML = "";
 }
 
 function withdrawl() {
@@ -62,7 +64,8 @@ function withdrawl() {
             document.getElementById("idn").innerHTML = localStorage.getItem(accountN);
         }
     }
-    name = "";
+    document.getElementById("number").innerHTML = "";
+    document.getElementById("name").innerHTML = "";
 }
 
 function lookUp() {
@@ -77,7 +80,7 @@ function lookUp() {
         document.getElementById("idn").innerHTML = localStorage.getItem(accountN);
         document.getElementById("name").innerHTML = document.getElementById("lookup").innerHTML;
     }
-    name = "";
+    document.getElementById("lookup").innerHTML = "";
 }
 // function displayValue(name, value) {
 //     document.getElementById("balance").innerHTML = value; //display number of dollars
@@ -88,3 +91,4 @@ function lookUp() {
 //     document.getElementById("idn").innerHTML = localStorage.getItem(name + "number"); //display number
 
 // }
+console.log("Version " + version);
