@@ -1,6 +1,6 @@
 // starting gui version now
 /*global swal */
-var version = "0.00.21.07.02"; //0 cause of prerelease, 00 cause of hour, 21 cause of minute, 07 cause of month, 02 cause of date
+var version = "0.00.31.07.02"; //0 cause of prerelease, 00 cause of hour, 21 cause of minute, 07 cause of month, 02 cause of date
 function makeNewAccount(name) {
     var newName = name.toLowerCase(); //make sure there are no duplicate accounts
     var accountName = newName + "account"; // make a new account string
@@ -24,13 +24,23 @@ function createUser() {
     }
     document.getElementById("makeAccount").innerHTML = "";
 }
-
+function checkIfNumber(number){
+    if(number === isNaN()){
+        return false;
+    }
+    else{
+        return true;
+    }
+} 
 function deposit() {
     var number = document.getElementById("number").innerHTML; //find value of amount deposited
     var name = document.getElementById("name").innerHTML; //find value of name
     var Lname = name.toLowerCase();
     var account = Lname + "account";
     var accountN = Lname + "number"
+    if(checkIfNumber(number)){
+        
+
     if (localStorage.getItem(account) === null) { //if name isn't found make new account
         swal('Error', 'User Not Defined', 'error'); //Shout No!
     } else {
@@ -40,6 +50,9 @@ function deposit() {
         document.getElementById("balance").innerHTML = "$" + localStorage.getItem(account);
         document.getElementById("idn").innerHTML = localStorage.getItem(accountN);
         
+    }
+    }else{
+        swal("Error", number + " is not a number", "error");
     }
     document.getElementById("number").innerHTML = "";
     document.getElementById("name").innerHTML = "";
@@ -51,18 +64,22 @@ function withdrawl() {
     var Lname = name.toLowerCase();
     var account = Lname + "account";
     var accountN = Lname + "number";
-    if (localStorage.getItem(account) === null) { //if name isn't found make new account
-        swal('Error', 'User Not Defined', 'error'); //Shout No!
-    } else {
-        var oldBalance = parseInt(localStorage.getItem(account));
-        var newBalance = oldBalance - parseInt(number);
-        if (newBalance < 0) {
-            document.getElementById("balance").innerHTML = "INSUFF. FUNDS";
+    if(checkIfNumber(number)){
+        if (localStorage.getItem(account) === null) { //if name isn't found make new account
+            swal('Error', 'User Not Defined', 'error'); //Shout No!
         } else {
-            localStorage.setItem(account, newBalance);
-            document.getElementById("balance").innerHTML = "$" + localStorage.getItem(account);
-            document.getElementById("idn").innerHTML = localStorage.getItem(accountN);
+            var oldBalance = parseInt(localStorage.getItem(account));
+            var newBalance = oldBalance - parseInt(number);
+            if (newBalance < 0) {
+                document.getElementById("balance").innerHTML = "INSUFF. FUNDS";
+            } else {
+                localStorage.setItem(account, newBalance);
+                document.getElementById("balance").innerHTML = "$" + localStorage.getItem(account);
+                document.getElementById("idn").innerHTML = localStorage.getItem(accountN);
+            }
         }
+    }else{
+        swal("Error", number + " is not a number", "error");
     }
     document.getElementById("number").innerHTML = "";
     document.getElementById("name").innerHTML = "";
